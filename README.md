@@ -1,1 +1,2 @@
-![My Git Koi](koi.gif)
+
+![My Git Koi](koi/koi.gif)
