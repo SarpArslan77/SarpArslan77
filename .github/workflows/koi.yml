@@ -2,8 +2,8 @@ name: Generate Git Koi
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Updates every night at midnight UTC
-  workflow_dispatch:    # Lets you trigger it manually anytime
+    - cron: '0 0 * * *' # Midnight UTC every night
+  workflow_dispatch:    # Allows manual trigger
 
 permissions:
   contents: write
@@ -18,7 +18,8 @@ jobs:
       - name: Generate Koi
         uses: yalongwastaken/git-koi@v1
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          login: ${{ github.repository_owner }}
 
       - name: Commit and push Koi GIF
         run: |
